@@ -1,25 +1,28 @@
 import React from "react";
 
 function Article({ title, date = "January 1, 1970", preview, minutes }) {
+
   function roundNearest5(num) {
     return Math.round(num / 5);
   }
+
   function roundNearest10(num) {
     return Math.round(num / 10);
   }
 
   function displayEmoji() {
     const emojiArray = [];
+
     if (minutes <= 30) {
       for (let i = 0; i < roundNearest5(minutes); i++) {
         emojiArray.push("☕️");
       }
-     return(emojiArray.join(' ') + ' ' + minutes + " min read");
+     return (emojiArray.join(' ') + " " + minutes + " min read");
     } else {
       for (let i = 0; i < roundNearest10(minutes); i++) {
         emojiArray.push("🍱");
       }
-      return emojiArray.join('') + " " + minutes + " min read";
+      return (emojiArray.join('') + " " + minutes + " min read");
     }
   }
 
